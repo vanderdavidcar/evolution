@@ -6,18 +6,32 @@ import json
 import urllib3
 urllib3.disable_warnings()
 
+
+"""
+1 - Access the Netbox Demo
+"""
 NETBOX_URL = "https://demo.netbox.dev/"
+
+"""
+2 - Get API Token on Netbox
+"""
 NETBOX_TOKEN = config.api_key
 
+"""
+3 - Insted Postman I'm using Pynetbox to send a GET a take this informations
+"""
 nb = pynetbox.api(url=NETBOX_URL, token=NETBOX_TOKEN)
 nb.http_session.verify = False
 
+"""
+5 - Information to collect: software version
+Custom field to update: "sw_version"
+Assume network device list would contain Cisco Catalyst IOS
+"""
 # NAPALM to get.facts() of IOS
 driver = get_network_driver("ios")
 device = driver(
-    hostname="cisco1",
-    username=config.nb_username,
-    password=config.nb_password,
+    hostname="cisco1", username=config.nb_username, password=config.nb_password
 )
 device.open()
 ios_getfacts = json.dumps(device.get_facts(), indent=4)

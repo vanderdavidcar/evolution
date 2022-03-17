@@ -14,6 +14,10 @@ nb.http_session.verify = False
 
 devices = list(nb.dcim.devices.all())
 
+"""
+4 - Collect information for devices with Status = Active, Tenant = NOC in Netbox
+Doing a loop to find Status = Active, Tenant = NOC in Netbox
+"""
 status_cond = list(nb.dcim.devices.filter(tenant="noc", status="active"))
 for device in status_cond:
     if device:

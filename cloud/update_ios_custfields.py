@@ -47,3 +47,5 @@ print("Current serial number: ", ios_update.name)
 print("Device Type: ", ios_update.device_type)
 print("sw_version: ", ios_update.custom_fields["sw_version"])
 print("Current tenant: ", ios_update.tenant)
+    
+    
