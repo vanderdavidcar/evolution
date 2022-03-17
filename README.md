@@ -1,15 +1,26 @@
 # evolution Lab - Netbox using Pynetbox and Napalm
 
-I couldn't access the demonetbox using user/pass: admin, so I tested my codes in another environment. For this reason testing my codes following the instructions below:
+# Evolution Lab - Netbox using Pynetbox and Napalm
 
-1 - Put informations in for variables in config.py
+Following the instructions below:
+
+# Install the requirements to install all dependecies:
+$ pip install -r requirements.txt
+
+# Put api token, username and password informations into variables in config.py file.
 
 api_key = ""
 nb_username = ""
 nb_password = ""
 
-2 - In my environment has only cisco devices so I created NXOS and IOS sw_version updates and works fine. So for the codes update_ios_custfields.py and update_nxos_custfields.py put IP Address in hostname variable, and the code will works properly.
+# For files update_nxos_custfields.py and, put IP Address or FQDN in hostname variable, and the code will works properly.
 
-Note:
+update_nxos_custfields.py
+Line 34, put IP/FQDN in hostname
+
+update_ios_custfields.py
+Line 34, put IP/FQDN in hostname
+
+
+# Note:
 I need more concepts about class and functions to create pystest file.
-I did my best!
