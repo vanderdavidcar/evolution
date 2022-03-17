@@ -16,7 +16,7 @@ NETBOX_URL = "https://demo.netbox.dev/"
 NETBOX_TOKEN = config.api_key
 
 """
-3 - Insted Postman I'm using Pynetbox to send a GET a take this informations
+3 - Insted of Postman I'm using Pynetbox to send GET and take informations from devices
 """
 nb = pynetbox.api(url=NETBOX_URL, token=NETBOX_TOKEN)
 nb.http_session.verify = False
