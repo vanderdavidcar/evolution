@@ -3,7 +3,7 @@
 Following the instructions below:
 
 
-# Dependecies:
+# Dependencies:
 
 Install the requirements to install all dependecies:
 
