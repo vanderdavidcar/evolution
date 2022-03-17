@@ -1,0 +1,10 @@
+# .gitignore should include reference to config.py
+api_key = "dea33dafd8a1bf0daba55576573c259f2a73d341"
+api_secret = "YOUR_SECRET"
+access_token = "YOUR_ACCESS_TOKEN"
+token_secret = "YOUR_TOKEN_SECRET"
+cloud_username = "netbox"
+cloud_password = "NIz8MQMuiO32VwUc3OjK"
+cloud_user = "admin"
+cloud_pwd = "Embratel@21"
+cloud_sct = "@idc2948"
