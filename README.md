@@ -2,7 +2,11 @@
 
 I couldn't access the demonetbox using user/pass: admin, so I tested my codes in another environment. For this reason testing my codes following the instructions below:
 
+<<<<<<< HEAD
 1 - Put api token, username and password informations into variables in config.py
+=======
+1 - Put informations in for variables in config.py
+>>>>>>> c4886b7ff08b7d7b873a1f99eb9d511529764769
 
 api_key = ""
 nb_username = ""

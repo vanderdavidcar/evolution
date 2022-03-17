@@ -1,14 +1,14 @@
 import pynetbox
 import re
 from napalm import get_network_driver
-import config_cloud
+import config
 import json
 import urllib3
 
 urllib3.disable_warnings()
 
 NETBOX_URL = "https://netbox.int.flexcloud.com.br/"
-NETBOX_TOKEN = config_cloud.api_key
+NETBOX_TOKEN = config.api_key
 
 nb = pynetbox.api(url=NETBOX_URL, token=NETBOX_TOKEN)
 nb.http_session.verify = False
@@ -17,10 +17,9 @@ nb.http_session.verify = False
 driver = get_network_driver("ios")
 device = driver(
     hostname="br-lp-spac04-mgmt-1-2",
-    username=config_cloud.cloud_username,
-    password=config_cloud.cloud_password,
+    username=config.nb_username,
+    password=config.nb_password,
 )
-# optional_args={'port':22})
 
 device.open()
 ios_getfacts = json.dumps(device.get_facts(), indent=4)
