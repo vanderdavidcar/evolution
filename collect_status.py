@@ -5,10 +5,19 @@ import config
 
 urllib3.disable_warnings()
 
-
+"""
+1 - Access the Netbox Demo
+"""
 NETBOX_URL = "https://demo.netbox.dev/"
+
+"""
+2 - Get API Token on Netbox
+"""
 NETBOX_TOKEN = config.api_key
 
+"""
+3 - Insted Postman I'm using Pynetbox to send a GET a take this informations
+"""
 nb = pynetbox.api(url=NETBOX_URL, token=NETBOX_TOKEN)
 nb.http_session.verify = False
 
