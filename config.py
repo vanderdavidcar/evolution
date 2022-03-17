@@ -1,4 +1,4 @@
 # .gitignore should include reference to config.py
-api_key = "45e4cc00633d106df51e4cd59ced6e1c17583902"
+api_key = "662668787b0e78bea0f18f0db5020cd195bd5445"
 nb_username = ""
 nb_password = ""
