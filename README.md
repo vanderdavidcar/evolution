@@ -2,17 +2,27 @@
 
 Following the instructions below:
 
-1 - Install the requirements to install all dependecies:
+
+# Dependecies:
+
+Install the requirements to install all dependecies:
 
 $ pip install -r requirements.txt
 
-2 - Put api token, username and password informations into variables in config.py file.
+
+
+# Authentication:
+
+Put api token, username and password informations into variables in config.py file.
 
 api_key = ""
 nb_username = ""
 nb_password = ""
 
-3 - For files update_nxos_custfields.py and, put IP Address or FQDN in hostname variable, and the code will works properly.
+
+# IP/FQDN
+
+For files update_nxos_custfields.py and, put IP Address or FQDN in hostname variable, and the code will works properly.
 
 update_nxos_custfields.py
 Line 34, put IP/FQDN in hostname
