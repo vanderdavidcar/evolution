@@ -45,7 +45,7 @@ version_pattern = re.compile(r"Cisco IOS XR Software, Version (?P<version>\S....
 iosxr_version = version_pattern.search(results)
 
 # Print regex information collect ina file iosxr_version.txt
-print("IOS Version regex: ".ljust(18) + iosxr_version.group("version"))
+print("IOS-XR Version regex: ".ljust(18) + iosxr_version.group("version"))
 version = iosxr_version.group("version")
 # Retrieve router object for update with dictionary
 iosxr_update = nb.dcim.devices.get(name="")
