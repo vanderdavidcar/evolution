@@ -31,4 +31,5 @@ For files update_nxos_custfields.py, update_ios_custfields.py and update_iosxr_c
 
 
 # Note:
-I need more concepts about class and functions to create pystest file.
+I need more concepts about class and functions to create pystest file properly.
+
