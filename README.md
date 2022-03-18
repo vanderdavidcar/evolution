@@ -10,6 +10,11 @@ Install the requirements to install all dependencies:
 $ pip install -r requirements.txt
 
 
+# Endpoint
+
+NETBOX_URL = "https://demo.netbox.dev/"
+If necessary, change that for another all my codes was tested in "https://netbox.int.flexcloud.com.br/"
+
 
 # Authentication:
 
