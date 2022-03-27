@@ -4,7 +4,6 @@ from napalm import get_network_driver
 import config
 import json
 import urllib3
-
 urllib3.disable_warnings()
 
 
@@ -19,8 +18,7 @@ NETBOX_URL = config.nb_url
 NETBOX_TOKEN = config.api_key
 
 """
-3 - Insted of Postman I'm using Pynetbox to send GET and take
-informations from devices
+3 - Insted of Postman I'm using Pynetbox to send GET and take informations from devices
 """
 nb = pynetbox.api(url=NETBOX_URL, token=NETBOX_TOKEN)
 nb.http_session.verify = False
@@ -30,18 +28,11 @@ nb.http_session.verify = False
 Custom field to update: "sw_version"
 Assume network device list would contain Cisco Catalyst IOS
 """
-# List of devices vendors "NXOS"
-ios_model = list(nb.dcim.devices.filter(model="catalyst-2960"))
-print(ios_model)
-
 # NAPALM to get.facts() of IOS
-for devices in ios_model:
-    driver = get_network_driver("ios")
-    device = driver(
-        hostname=devices,
-        username=config.nb_username,
-        password=config.nb_password
-    )
+driver = get_network_driver("ios")
+device = driver(
+    hostname="br-lp-spac04-mgmt-1-2", username=config.nb_username, password=config.nb_password
+)
 device.open()
 ios_getfacts = json.dumps(device.get_facts(), indent=4)
 
@@ -56,14 +47,14 @@ ios_version = version_pattern.search(results)
 # Print regex information collect ina file ios_version.txt
 print("IOS Version regex: ".ljust(18) + ios_version.group("version"))
 version = ios_version.group("version")
-
 # Retrieve router object for update with dictionary
-for devices in ios_model:
-    # Update custom fields "sw_version" using regex information collected
-    devices["custom_fields"]["sw_version"] = version
-    devices.save()
+ios_update = nb.dcim.devices.get(name="br-lp-spac04-mgmt-1-2")
+dict_update = dict(ios_update)
+# Update custom fields "sw_version" using regex information collected
+dict_update["custom_fields"]["sw_version"] = version
+ios_update.save()
 
-    print("Current serial number: ", devices.name)
-    print("Device Type: ", devices.device_type)
-    print("sw_version: ", devices.custom_fields["sw_version"])
-    print("Current tenant: ", devices.tenant)
+print("Current serial number: ", ios_update.name)
+print("Device Type: ", ios_update.device_type)
+print("sw_version: ", ios_update.custom_fields["sw_version"])
+print("Current tenant: ", ios_update.tenant)
