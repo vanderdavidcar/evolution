@@ -4,13 +4,12 @@ from napalm import get_network_driver
 import config
 import json
 import urllib3
-
 urllib3.disable_warnings()
 
 """
 1 - Access the Netbox Demo
 """
-NETBOX_URL = "https://demo.netbox.dev/"
+NETBOX_URL = config.nb_url
 
 """
 2 - Get API Token on Netbox
@@ -18,7 +17,7 @@ NETBOX_URL = "https://demo.netbox.dev/"
 NETBOX_TOKEN = config.api_key
 
 """
-3 - Instead of Postman I'm using Pynetbox to send GET and take informations from devices
+3 - Insted of Postman I'm using Pynetbox to send GET and take informations from devices
 """
 nb = pynetbox.api(url=NETBOX_URL, token=NETBOX_TOKEN)
 nb.http_session.verify = False
@@ -28,13 +27,16 @@ nb.http_session.verify = False
 Custom field to update: "sw_version"
 Assume network device list would contain Cisco Nexus OS
 """
+# List of devices vendors "NXOS"
+nxos_model = nb.dcim.devices.filter(model="nexus-9300")
 
 # NAPALM to get.facts() of NX-OS
-driver = get_network_driver("nxos")
-device = driver(
-    hostname="",
-    username=config.nb_username,
-    password=config.nb_password,
+for devices in nxos_model:
+    driver = get_network_driver("nxos")
+    device = driver(
+        hostname=devices,
+        username=config.nb_username,
+        password=config.nb_password,
 )
 device.open()
 nxos_getfacts = json.dumps(device.get_facts(), indent=4)
@@ -49,14 +51,14 @@ nxos_version = version_pattern.search(results)
 # Print regex information collect ina file nxos_version.txt
 print("NX-OS Version regex: ".ljust(18) + nxos_version.group("version"))
 version = nxos_version.group("version")
-# Retrieve router object for update with dictionary
-nxos_update = nb.dcim.devices.get(name="")
-dict_update = dict(nxos_update)
-# Update custom fields "sw_version" using regex information collected
-dict_update["custom_fields"]["sw_version"] = version
-nxos_update.save()
 
-print("Current serial number: ", nxos_update.name)
-print("Device Type: ", nxos_update.device_type)
-print("sw_version: ", nxos_update.custom_fields["sw_version"])
-print("Current tenant: ", nxos_update.tenant)
+# Retrieve router object for update with dictionary
+for devices in nxos_model:
+    # Update custom fields "sw_version" using regex information collected
+    devices["custom_fields"]["sw_version"] = version
+    devices.save()
+
+    print("Hostname: ", devices.name)
+    print("Device Type: ", devices.device_type)
+    print("sw_version: ", devices.custom_fields["sw_version"])
+    print("Current tenant: ", devices.tenant)
