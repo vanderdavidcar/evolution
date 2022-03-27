@@ -31,6 +31,7 @@ Assume network device list would contain Cisco Nexus OS
 """
 # List of devices vendors "NXOS"
 nxos_model = list(nb.dcim.devices.filter(model="nexus-9300"))
+print(nxos_model)
 
 # NAPALM to get.facts() of NX-OS
 for devices in nxos_model:
