@@ -18,16 +18,20 @@ If necessary, change that for another one, all my codes was tested in "https://n
 
 # Authentication:
 
-Put api token, username and password informations into variables in config.py file.
+Put api token, URL, username and password informations into variables in config.py file.
 
 api_key = ""
 nb_username = ""
 nb_password = ""
+nb_url = ""
 
 
 # IP/FQDN
 
-For files update_nxos_custfields.py, update_ios_custfields.py and update_iosxr_custfields.py, put IP Address or FQDN in lines 34 (hostname="") and 51 (name="").
+I used WSL (Windows Subsystem Linux) to tests all codes, so access by SSH was done with FQDN, all devices needed in /etc/hosts, because I searching for model in device_type to take the hostname of devices.
+
+e.g: 
+nxos_model = list(nb.dcim.devices.filter(model="nexus-9300"))
 
 # Exercises:
 
@@ -38,7 +42,6 @@ For files update_nxos_custfields.py, update_ios_custfields.py and update_iosxr_c
   Using files update_nxos_custfields.py, update_ios_custfields.py and update_iosxr_custfields.py
 
 
-#  # Note:
+# Note:
 
 I need more concepts about class and functions to create pytest file to works properly. So the files start with test_* name doesn't work from pytest.
-
