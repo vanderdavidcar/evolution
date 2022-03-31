@@ -12,8 +12,8 @@ $ pip install -r requirements.txt
 
 # Endpoint
 
-NETBOX_URL = "https://demo.netbox.dev/"
-If necessary, change that for another one, all my codes was tested in "https://netbox.int.flexcloud.com.br/"
+NETBOX_URL = "https://demo.netbox.dev/" 
+If necessary, change that for another one.
 
 
 # Authentication:
