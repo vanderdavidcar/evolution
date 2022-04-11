@@ -8,7 +8,7 @@ urllib3.disable_warnings()
 """
 1 - Access the Netbox Demo
 """
-NETBOX_URL = "https://demo.netbox.dev/"
+NETBOX_URL = config.nb_url
 
 """
 2 - Get API Token on Netbox
