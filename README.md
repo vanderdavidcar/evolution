@@ -27,7 +27,7 @@ nb_url = ""
 
 # IP/FQDN - DNS
 
-I used WSL (Windows Subsystem Linux) to tests all codes, so access by SSH was done with FQDN, all devices needed in /etc/hosts, because I searching for model in device_type to take the hostname of devices.
+I used WSL (Windows Subsystem Linux) to tests all codes, so access by SSH was done with FQDN, all devices needed into /etc/hosts, because my code searching for models e.g (c9200-48p, isr1111) create a python list and connect via SSH for DNS name.
 
 To avoid the error below, please make sure you have a DNS of devices in /etc/hosts
 
@@ -53,4 +53,4 @@ nxos_model = list(nb.dcim.devices.filter(model="nexus-9300"))
 iosxr_model = list(nb.dcim.devices.filter(model="ios-xr"))
 
 # Pytest:
-Files start with test_* 
+Created test_model.py and parse_model.py that have a regex of versions
