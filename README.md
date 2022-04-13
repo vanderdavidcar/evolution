@@ -11,8 +11,7 @@ $ pip install -r requirements.txt
 
 
 # Endpoint
-
-NETBOX_URL = "https://demo.netbox.dev/" 
+I set up netbox-docker and use eve-ng to emulate environment and tested with link "https://demo.netbox.dev/" 
 If necessary, change that for another one.
 
 
@@ -51,6 +50,5 @@ ios_model = list(nb.dcim.devices.filter(model="catalyst-2960"))
 nxos_model = list(nb.dcim.devices.filter(model="nexus-9300"))
 iosxr_model = list(nb.dcim.devices.filter(model="ios-xr"))
 
-# Note:
-
-I need more concepts about class and functions to create pytest file to works properly. So the files start with test_* name doesn't work from pytest.
+# Pytest:
+Files start with test_* 
