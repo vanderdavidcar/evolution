@@ -26,9 +26,14 @@ nb_password = ""
 nb_url = ""
 
 
-# IP/FQDN
+# IP/FQDN - DNS
 
 I used WSL (Windows Subsystem Linux) to tests all codes, so access by SSH was done with FQDN, all devices needed in /etc/hosts, because I searching for model in device_type to take the hostname of devices.
+
+To avoid the error below, please make sure you have a DNS of devices in /etc/hosts
+
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: DNS failure--the hostname you provided was not resolvable in DNS: dmi01-akron-rtr01:22
 
 
 # Exercises:
