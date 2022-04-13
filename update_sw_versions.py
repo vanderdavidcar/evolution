@@ -27,10 +27,10 @@ nb.http_session.verify = False
 """
 5 - Information to collect: software version
 Custom field to update: "sw_version"
-Assume network device list would contain Cisco Catalyst IOS
+Needed to inform in line 33 the model of devices.
 """
 # List of devices vendors "NXOS"
-ios_model = list(nb.dcim.devices.filter(model="iol"))
+ios_model = list(nb.dcim.devices.filter(model="c9200-48p"))
 print(ios_model)
 
 for devices in ios_model:
