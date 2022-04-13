@@ -41,7 +41,8 @@ netmiko.ssh_exception.NetmikoTimeoutException: DNS failure--the hostname you pro
   Using file collect_status.py  
   
 5 - Information to collect: software version Custom field to update: "sw_version" Assume network device list would contain Cisco Catalyst IOS
-I did with Napalm and Netmiko, there is a version in NETMIKO if you want to update "custom fields | sw_version" ou only clear that field input "yes" or "no". If choose "yes" the program is take that version and put on custom fields if "no" the program will clean all devices custom fields.
+
+I did with Napalm and Netmiko, there is a version in NETMIKO update_ios_sw_version.py if you want to update "custom fields | sw_version" ou only clear that field input "yes" or "no". If choose "yes" the program is take that version and put on custom fields if "no" the program will clean all devices custom fields.
  
 Using files update_nxos_custfields.py, update_ios_custfields.py and update_iosxr_custfields.py
 For your testing change the model in line 34 like (c9200-48p, isr1111), but regex created in this environment was only (IOS, NXOS and IOSXR)
