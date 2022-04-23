@@ -1,4 +1,4 @@
-# Evolution Lab - Netbox using Pynetbox and Napalm
+# Netbox using Pynetbox
 
 Following the instructions below:
 
